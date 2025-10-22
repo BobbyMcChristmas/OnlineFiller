@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Online Filler</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="./images/apple-touch-icon.png">
+    <link rel="manifest" href="./images/site.webmanifest">
+    <link rel="shortcut icon" href="./images/favicon.ico">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" type="text/css" href="./filler.css">
+ 
+    <script id="vshader" type="x-shader/x-vertex">
+          uniform float pointSize;
+          attribute vec2 vPosition;
+          uniform vec3 uColor;
+          varying vec4 vColor;
+          void main() {
+              gl_PointSize = pointSize;
+              gl_Position = vec4(vPosition, 0.0, 1.0);
+              vColor = vec4(uColor, 1.0);
+          }
+    </script>
+	
+    <script id="fshader" type="x-shader/x-fragment">
+          precision mediump float;
+          varying vec4 vColor;
+          void main() {
+              gl_FragColor = vColor;
+          }
+    </script>
+	
+    <script src="/webGlLib/initShaders.js"></script>
+    <script src="/webGlLib/MV.js"></script>
+    <script src="/webGlLib/webgl-utils.js"></script>
+
+    <script src="../scripts/canvas.js"></script>
+    <script src="../scripts/square.js"></script>
+    <script src="../scripts/filler.js"></script>
+
+    <script src="../scripts/renderable.js"></script>
+    <script src="../scripts/board.js"></script>
+    <script src="../scripts/controller.js"></script>
+
+  </head>
+ 
+  <body onload="main()">
+  
+    <canvas id="webgl" width="400" height="400">
+    Please use a browser that supports the "canvas" tag.
+    </canvas>
+
+  </body>
+</html>
