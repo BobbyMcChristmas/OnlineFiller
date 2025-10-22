@@ -10,10 +10,12 @@ class Canvas2D {
      * @param gl
      */
     resizeCanvasToWindow(gl) {
-        this.canvas.width = window.innerWidth;
-        this.canvas.height = window.innerHeight;
+        const rect = this.canvas.getBoundingClientRect();
+        this.canvas.width = rect.width;
+        this.canvas.height = rect.height;
         gl.viewport(0, 0, this.canvas.width, this.canvas.height);
     }
+
 
 
     /**

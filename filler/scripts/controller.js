@@ -11,6 +11,15 @@ class Controller extends Renderable {
 
         this.clicked = []
         this.canvas.canvas.addEventListener("click", (event) => {this.click(event.offsetX, event.offsetY)});
+        this.canvas.canvas.addEventListener("touchstart", (event) => {
+            event.preventDefault();
+            const touch = event.touches[0];
+            const rect = canvas.getBoundingClientRect();
+            const x = touch.clientX - rect.left;
+            const y = touch.clientY - rect.top;
+
+            this.click(x, y);
+        });
 
         window.addEventListener("resize", () => this.sizeToCanvas());
         this.sizeToCanvas();
