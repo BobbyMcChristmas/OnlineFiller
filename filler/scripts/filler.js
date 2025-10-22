@@ -13,6 +13,7 @@ let controller;
  * Initialize WebGL and simulation
  */
 function main() {
+    alert("attempt 2");
 
     const canvas = new Canvas2D("webgl");
     gl = WebGLUtils.setupWebGL(canvas.canvas, null);

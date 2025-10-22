@@ -14,7 +14,7 @@ class Controller extends Renderable {
         this.canvas.canvas.addEventListener("touchstart", (event) => {
             event.preventDefault();
             const touch = event.touches[0];
-            const rect = canvas.getBoundingClientRect();
+            const rect = this.canvas.canvas.getBoundingClientRect();
             const x = touch.clientX - rect.left;
             const y = touch.clientY - rect.top;
 
