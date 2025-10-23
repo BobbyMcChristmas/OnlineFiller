@@ -50,7 +50,6 @@ class Board extends Renderable {
      * changes the color of all connected same-color squares to the target color
      * 
      * @param {vec3} color Target color to change to
-     * @returns {int} Total number of connected squares with the target color
      */
     colorBFS(color) {
 
@@ -109,11 +108,12 @@ class Board extends Renderable {
             }
         }
 
+        let scoreboard = document.getElementById(this.leftTurn ? "leftScore" : "rightScore");
+        scoreboard.style.backgroundColor = vec3toRGBString(color);
+        scoreboard.textContent = count;
+
         this.leftTurn = !this.leftTurn;
         this.updateMarker();
-
-        console.log(count);
-        return count;
     }
 
 

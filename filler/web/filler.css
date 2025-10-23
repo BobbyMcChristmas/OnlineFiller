@@ -11,3 +11,19 @@ canvas {
   width: 100vw;
   height: 100vh;
 }
+
+.label {
+  position: absolute;
+  color: white;
+  font-family: Arial, sans-serif;
+  font-size: 20px;
+  pointer-events: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+
+  text-shadow:
+     -1px -1px 0 #000,
+      1px -1px 0 #000,
+     -1px  1px 0 #000,
+      1px  1px 0 #000;
+}
